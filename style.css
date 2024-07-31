@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
 
 :root {
-    --cor-de-fundo: #1E1E1E;
-    --verde: #6FFF57;
-    --branco: #FFFFFF;
-    --botao-ativo: #3A375E;
-    --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+    --cor-de-fundo: #F5F5F5;
+    --verde-claro: #4CAF50;
+    --azul-esverdeado: #2C6B6F;
+    --azul-esverdeado-inativo: rgba(44, 107, 111, 0.5);
+    --texto-fundo: rgba(44, 107, 111, 0.3);
 }
 
 body {
     background-color: var(--cor-de-fundo);
-    color: var(--branco);
+    color: var(--azul-esverdeado);
     font-family: 'Chakra Petch', sans-serif;
+    margin: 0;
+    padding: 0;
 }
-
 
 .conteudo-principal {
     display: flex;
@@ -24,105 +24,130 @@ body {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .titulo-principal {
-    text-align: left;
+    text-align: center;
     width: 100%;
     font-size: 32px;
+    margin-bottom: 20px;
 }
 
 .titulo-principal span {
-    color: var(--verde);
+    color: var(--verde-claro);
 }
 
+.botoes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 .botao {
     font-family: 'Chakra Petch', sans-serif;
-    background-color: var(--botao-inativo);
-    color: var(--branco);
+    background-color: var(--azul-esverdeado-inativo);
+    color: var(--azul-esverdeado);
     display: flex;
     justify-content: center;
     padding: 1em;
     font-size: 18px;
     align-items: center;
     width: 100%;
-    border-bottom: 4px solid var(--botao-ativo);
-    border-left: 2px solid var(--botao-ativo);
-    border-right: 2px solid var(--botao-ativo);
+    border-bottom: 4px solid var(--azul-esverdeado);
+    border-left: 2px solid var(--azul-esverdeado);
+    border-right: 2px solid var(--azul-esverdeado);
     border-top: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-bottom-color 0.3s;
 }
 
 .botao:first-child {
     border-radius: 40px 40px 0 0;
 }
 
-.botoes {
-    display: block;
+.botao.ativo {
+    background-color: var(--azul-esverdeado);
+    border-bottom: 4px solid var(--verde-claro);
 }
 
-.botao.ativo{
-    background-color: var(--botao-ativo);
-    border-bottom: 4px solid var(--verde);
+.botao:hover {
+    background-color: var(--azul-esverdeado);
 }
 
-.abas-textos{
+.abas-textos {
     background-color: var(--texto-fundo);
     padding: 40px;
     border-radius: 0 0 40px 40px;
-}
-.aba-conteudo.ativo{
-    display:block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.aba-conteudo{
+.aba-conteudo {
     display: none;
 }
 
-.aba-conteudo-titulo-principal{
-    font-size: 28px;
-    text-align: center;
-}
-.aba-conteudo-titulo-secundario{
-    text-align: center;
-    color: var(--verde);
-    text-transform: uppercase;
+.aba-conteudo.ativo {
+    display: block;
 }
 
-.contador{
-    display:flex;
+.aba-conteudo-titulo-principal {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.aba-conteudo-titulo-secundario {
+    text-align: center;
+    color: var(--verde-claro);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.contador {
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.contador-digito{
+
+.contador-digito {
     padding: 0 16px;
     text-align: center;
     min-width: 100px;
 }
 
-.contador-digito-numero{
+.contador-digito-numero {
     font-size: 80px;
     margin: 0;
-
 }
 
-.contador-digito-texto{
-    color: var(--verde);
+.contador-digito-texto {
+    color: var(--verde-claro);
     font-size: 20px;
     margin: 0;
-
 }
 
 @media screen and (min-width: 768px) {
     .botoes {
-        display: flex;
+        flex-direction: row;
+    }
+
+    .botao {
+        border-radius: 0;
     }
 
     .botao:first-child {
-        border-radius: 40px 0 0 0;
+        border-radius: 40px 0 0 40px;
     }
 
     .botao:last-child {
-        border-radius: 0 40px 0 0;
+        border-radius: 0 40px 40px 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .botao {
+        font-size: 16px;
+        padding: 0.8em;
     }
 }
