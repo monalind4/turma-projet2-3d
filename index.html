@@ -21,7 +21,7 @@
             <div class="abas-textos">
                 <div class="aba-conteudo ativo">
                     <h3 class="aba-conteudo-titulo-principal">Estudar 4 cursos na Alura</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">Tempo restante</h4>
+                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
                     <div class="contador">
                         <div class="contador-digito">
                             <p class="contador-digito-numero" id="dias0"></p>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="aba-conteudo">
                     <h3 class="aba-conteudo-titulo-principal">Criar 5 projetos em Javascript</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">Tempo restante</h4>
+                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
                     <div class="contador">
                         <div class="contador-digito">
                             <p class="contador-digito-numero" id="dias1"></p>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="aba-conteudo">
                     <h3 class="aba-conteudo-titulo-principal">Criar um portfolio com os meus 3 melhores projetos</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">Tempo restante</h4>
+                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
                     <div class="contador">
                         <div class="contador-digito">
                             <p class="contador-digito-numero" id="dias2"></p>
@@ -85,43 +85,32 @@
                         </div>
                     </div>
                 </div>
+                <div class="aba-conteudo">
+                    <h3 class="aba-conteudo-titulo-principal">Atualizar meu curriculo com os certificados da Alura</h3>
+                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+                    <div class="contador">
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias3"></p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas3"></p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min3"></p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg3"></p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            function updateCountdown(elementPrefix, endDateStr) {
-                const endDate = new Date(endDateStr); // Data alvo
-                const now = new Date();
-                const timeDiff = endDate - now;
-
-                if (timeDiff <= 0) {
-                    // Se o tempo acabar, exiba 0s
-                    document.querySelectorAll(`.${elementPrefix}-digito-numero`).forEach(digito => {
-                        digito.textContent = "0";
-                    });
-                    return;
-                }
-
-                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-                document.querySelector(`.${elementPrefix}-digito #dias${elementPrefix}`).textContent = days;
-                document.querySelector(`.${elementPrefix}-digito #horas${elementPrefix}`).textContent = hours;
-                document.querySelector(`.${elementPrefix}-digito #min${elementPrefix}`).textContent = minutes;
-                document.querySelector(`.${elementPrefix}-digito #seg${elementPrefix}`).textContent = seconds;
-            }
-
-            // Atualiza o contador a cada segundo
-            setInterval(() => {
-                updateCountdown('dias0', "2024-12-13T00:00:00");
-                updateCountdown('dias1', "2024-12-13T00:00:00");
-                updateCountdown('dias2', "2024-12-13T00:00:00");
-            }, 1000);
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
